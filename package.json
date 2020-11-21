@@ -1,0 +1,27 @@
+{
+  "name": "searchify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "searchify.js",
+  "bin": {
+    "searchify": "cli.js"
+  },
+  "scripts": {
+    "test": "cd test && ava"
+  },
+  "author": "jakobrosenberg@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "ava": "^3.13.0",
+    "cheerio": "^1.0.0-rc.3",
+    "commander": "^6.2.0",
+    "configent": "workspace:^2.0.1",
+    "flexsearch": "^0.6.32",
+    "fs-extra": "^9.0.1"
+  },
+  "ava": {
+    "ignoredByWatcher": [
+      "**/flexdump.json"
+    ]
+  } 
+}
