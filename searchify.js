@@ -1,11 +1,11 @@
 
-/** @param {Partial<import('../defaults.js')>} options  */
+/** @param {Partial<import('./defaults.js')>} options  */
 async function searchify(options = {}) {
     const { readdir, stat, readFile, outputFileSync } = require('fs-extra')
     const { resolve, relative } = require('path')
     const { configent } = require('configent')
     const cheerio = require('cheerio')
-    const config = configent(require('../defaults'), options, { useDetectDefaults: true })
+    const config = configent(require('./defaults'), options, { useDetectDefaults: true })
     const {
         flexsearch,
         docs,
