@@ -55,6 +55,6 @@ async function searchify(options = {}) {
     }
 }
 
-module.exports = searchify
+module.exports.searchify = searchify
 
 
