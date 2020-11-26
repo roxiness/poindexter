@@ -1,7 +1,7 @@
 import FlexSearch from 'flexsearch'
 
 export const client = {
-    fetch(path = '/searchify.dump.json') {
+    fetch(path = '/poindexter.dump.json') {
         return fetch(path).then(res => res.json())
     },
     async init(path) {

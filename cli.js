@@ -20,7 +20,7 @@ const program = require('commander');
 
         .action(program => {
             const options = program.opts()
-            require('./searchify').searchify({ ...defaults, ...options })
+            require('./poindexter').poindexter({ ...defaults, ...options})
         })
 
     program.parse(process.argv)

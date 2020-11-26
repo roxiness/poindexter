@@ -1,10 +1,10 @@
 {
-  "name": "searchify",
+  "name": "poindexter",
   "version": "1.0.1",
   "description": "",
-  "main": "searchify.js",
+  "main": "poindexter.js",
   "bin": {
-    "searchify": "cli.js"
+    "poindexter": "cli.js"
   },
   "scripts": {
     "test": "cd test && ava"

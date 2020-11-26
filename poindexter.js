@@ -1,10 +1,10 @@
+const { readdir, stat, readFile, outputFileSync } = require('fs-extra')
+const { resolve, relative } = require('path')
+const { configent } = require('configent')
+const cheerio = require('cheerio')
 
 /** @param {Partial<import('./defaults.js')>} options  */
-async function searchify(options = {}) {
-    const { readdir, stat, readFile, outputFileSync } = require('fs-extra')
-    const { resolve, relative } = require('path')
-    const { configent } = require('configent')
-    const cheerio = require('cheerio')
+async function poindexter(options = {}) {
     const config = configent(require('./defaults'), options, { useDetectDefaults: true })
     const {
         flexsearch,
@@ -48,13 +48,16 @@ async function searchify(options = {}) {
                 const content = await readFile(filepath, 'utf-8')
                 const doc = cheerio.load(content)
                 const data = await scrape.bind(config)(doc, path, config)
-                index.add([{ path: urlPath, ...data }])
+                if (data) {
+                    console.log(`[poindexter] indexed ${urlPath}`)
+                    index.add([{ path: urlPath, ...data }])
+                }
+                else
+                    console.log(`[poindexter] skipped ${urlPath}`)
             }
         })
         await Promise.all(promises)
     }
 }
 
-module.exports.searchify = searchify
-
-
+module.exports.poindexter = poindexter
