@@ -4,7 +4,7 @@
   Search engine for your static site
 </div>
 
-Poindexter scans a folder for HTML files and indexes their content by their relative filename. The index is output to a `poindexter.dump.js` bundle, which can be imported and searched with poindexter or flexsearch.
+Poindexter scans a folder for HTML files and indexes their content by their relative filename. The index is output to a `poindexter.bundle.js` bundle, which can be imported and searched with poindexter or flexsearch.
 
 ## Getting started
 
