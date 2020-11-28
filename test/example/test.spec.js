@@ -4,26 +4,27 @@ const FlexSearch = (require("flexsearch"));
 const { existsSync, rmdirSync, readFileSync } = require('fs')
 const test = require('ava').default
 const { poindexter } = require('../../poindexter')
+const { client } = require('../../runtime')
 process.chdir(__dirname)
 
 let dump, config, index
 
 
-test.serial('it creates a flexdump.json', async t => {
+test.serial('it creates a poindexter.bundle.json', async t => {
     rmdirSync('output', { recursive: true })
     await poindexter({
         docs: 'html',
-        output: 'output/flexdump.json',
+        output: 'output/poindexter.bundle.json',
         title: x => 'title',
         description: x => 'desc',
         keywords: x => ['foo', 'bar'],
         ignoreSelectors: ['.ignored']
     });
-    ({ dump, config } = require('./output/flexdump.json'))
+    ({ dump, config } = require('./output/poindexter.bundle.json'))
 
     index = FlexSearch.create(config)
     index.import(dump, { serialize: false })
-    t.assert(existsSync('output/flexdump.json'))
+    t.assert(existsSync('output/poindexter.bundle.json'))
 })
 
 
@@ -67,4 +68,10 @@ test('ignored content is not indexed', t => {
     }).map(e => e.path)
 
     t.deepEqual(fuzzyQuery, [])
+})
+
+test('runtime module', async t => {
+    await client.init({ path: 'output/poindexter.bundle.json' })
+    const limitedQuery = client.index.search({ query: 'blog' }).map(e => e.path)
+    t.deepEqual(limitedQuery, ['blog'])
 })
