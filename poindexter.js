@@ -17,6 +17,7 @@ async function poindexter(options = {}) {
     /** @type {import('flexsearch')['default']} */
     const FlexSearch = (require("flexsearch"));
 
+    /** @ts-ignore */
     const index = FlexSearch.create(flexsearch)
 
     await walker(docs)
@@ -25,6 +26,7 @@ async function poindexter(options = {}) {
         outputFileSync(output, (
             JSON.stringify({
                 config: flexsearch,
+                /** @ts-ignore */
                 dump: index.export({ serialize: false })
             })
         ))
