@@ -1,8 +1,7 @@
-<div style="text-align: center">
-<img src="./poindexter.svg" width="300px">
-
-Search engine for your static site
-
+<div align="center">
+  <img src="./poindexter.svg" width="300px">
+  
+  Search engine for your static site
 </div>
 
 Poindexter scans a folder for HTML files and indexes their content by their relative filename. The index is output to a `poindexter.dump.js` bundle, which can be imported and searched with poindexter or flexsearch.
