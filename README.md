@@ -1,34 +1,37 @@
 <div align="center">
   <img src="./poindexter.svg" width="300px">
   
-  Search engine for your static site
+  **Search engine for your static site.**
+
+   Powered by [FlexSearch](https://github.com/nextapps-de/flexsearch)
+
+   <br />
+   <br />
 </div>
 
-Poindexter scans a folder for HTML files and indexes their content by their relative filename. The index is output to a `poindexter.bundle.js` bundle, which can be imported and searched with poindexter or flexsearch.
+
+Poindexter scans a folder for HTML files and indexes each file's content by its relative filename. The full index is output to `poindexter.bundle.js`, which can be imported and searched with poindexter or flexsearch.
 
 ## Getting started
 
 #### Creating a searchable index
 
 ```
-npx poindexter [HTML folder]
+npx poindexter [HTML folder] -o [output path]
 ```
 
-#### Initializing poindexter
+#### Searching with Poindexter
 
 ```javascript
-  import { client } from "poindexter/runtime";
-  let index
+  import { client } from "poindexter/runtime";  
 
+  // loads the poindexter.bundle.json.
+  // for custom path: `client.init({ path: '/path/to/poindexter.bundle.js' })`
   client.init()
-    .then(res => (index = res))
-```
 
-#### Searching the index
-```javascript
-index.search(query)
+  // search the index.
+  client.index.search(query)
 ```
-
 
 
 ### FAQ
@@ -41,4 +44,7 @@ Poindexter can be served from the client, your own backend or a serverless funct
 
 #### How big are the index bundles?
 A site like [routify.dev](https://routify.dev) with 65 pages, generates a 65 kb bundle after brotli compression.
+
+#### How do I use Poindexter in development
+
 ```
