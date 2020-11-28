@@ -21,7 +21,7 @@
   },
   "ava": {
     "ignoredByWatcher": [
-      "**/flexdump.json"
+      "test/**/output"
     ]
-  }
+	}
 }

@@ -7,7 +7,7 @@ module.exports = {
         encode: 'advanced'
     },
     docs: 'dist',
-    output: 'poindexter.dump.json',
+    output: 'poindexter.bundle.json',
     contentSelectors: [
         'main main', 'main',
         '.container .container', '.container'
