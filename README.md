@@ -14,13 +14,13 @@ Poindexter scans a folder for HTML files and indexes each file's content by its 
 
 # Getting started
 
-#### Create a searchable index
+### Create a searchable index
 
 ```
 npx poindexter [HTML folder] -o [output path]
 ```
 
-#### Searching with Poindexter
+### Searching with Poindexter
 
 ```javascript
   import { client } from "poindexter/runtime";  
@@ -33,6 +33,38 @@ npx poindexter [HTML folder] -o [output path]
   client.index.search(query)
 ```
 
+### Narrowing the indexable area
+To avoid indexing navbars and widgets, Poindexter provide the following options.
+
+**contentSelectors** An array of selectors. Poindexter tries each selector untill a match is found. Only the content of the first match is indexed. If no match is found, the page is skipped.
+
+**IgnoreSelectors** An array of selectors. Poindexter removes any elements matching these selectors.
+
+Please refer to the [scrape function](https://github.com/roxiness/poindexter/blob/master/defaults.js#L19) for more info. Alternatively you can use your own scrape function.
+
+### Options
+Please refer to the [defaults](https://github.com/roxiness/poindexter/blob/master/defaults.js) for now.
+
+### Configuration
+Thanks to [Configent](https://github.com/roxiness/configent) Poindexter can be configured here 
+- poindexter.config.js
+- package.json (create a poindexter field)
+- environment
+- .env
+- command line
+- API
+
+### Title, description and keywords
+Poindexter assumes that title, meta description and meta keywords are available in your HTML. Please refer to [defaults](https://github.com/roxiness/poindexter/blob/master/defaults.js#L16) If this is not the case, you can create your own resolvers.
+
+Custom resolvers
+```javascript
+{
+  title: $ => 'my website',
+  description: $ => $('.description') || 'no description',
+  keywords: $ => $('meta[name=keywords]').attr('content').split(',')
+}
+```
 
 # FAQ
 
