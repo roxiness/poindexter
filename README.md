@@ -45,6 +45,5 @@ Poindexter can be served from the client, your own backend or a serverless funct
 #### How big are the index bundles?
 A site like [routify.dev](https://routify.dev) with 65 pages, generates a 65 kb bundle after brotli compression.
 
-#### How do I use Poindexter in development
 
-```
+<img src="./poindexter.gif">
