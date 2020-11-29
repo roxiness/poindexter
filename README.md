@@ -12,9 +12,9 @@
 
 Poindexter scans a folder for HTML files and indexes each file's content by its relative filename. The full index is output to `poindexter.bundle.js`, which can be imported and searched with poindexter or flexsearch.
 
-## Getting started
+# Getting started
 
-#### Creating a searchable index
+#### Create a searchable index
 
 ```
 npx poindexter [HTML folder] -o [output path]
@@ -34,7 +34,7 @@ npx poindexter [HTML folder] -o [output path]
 ```
 
 
-### FAQ
+# FAQ
 
 #### Can I use Poindexter with a SPA?
 Poindexter requires a static site. If you have a SPA, have a look at [Spank](https://github.com/roxiness/spank).
@@ -45,5 +45,9 @@ Poindexter can be served from the client, your own backend or a serverless funct
 #### How big are the index bundles?
 A site like [routify.dev](https://routify.dev) with 65 pages, generates a 65 kb bundle after brotli compression.
 
+---
 
+# Example
+
+[Routify dev build](https://routify-2020-git-searchify.sveltaforce.now.sh/)
 <img src="./poindexter.gif">
