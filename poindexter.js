@@ -5,7 +5,7 @@ const cheerio = require('cheerio')
 
 /** @param {Partial<import('./defaults.js')>} options  */
 async function poindexter(options = {}) {
-    const config = configent(require('./defaults'), options, { useDetectDefaults: true })
+    const config = configent(require('./defaults'), options, { useDetectDefaults: true, module })
     const {
         flexsearch,
         docs,
