@@ -14,6 +14,14 @@ Poindexter scans a folder for HTML files and indexes each file's content by its 
 
 # Getting started
 
+### Requirements
+
+To ensure that poindexter doesn't fail, please make sure that you added a 
+```html
+<meta name="keywords" content="Here,you,can,choose,the,keywords,that,are,fitting,to,your,site" />
+```
+tag to your html file(s), with libarys like [routify](https://routify.dev) it's enough when you add this metatag to your `__app.html` html entry file, where the JS gets ejected.
+
 ### Create a searchable index
 
 ```
